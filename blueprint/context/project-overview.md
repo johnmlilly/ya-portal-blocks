@@ -1,85 +1,85 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash 7aae9120a4b1ec52fd9cb5e0af624904c943466d9f160b71df5b660c4f8a7e8f -->
+<!-- blueprint:source-hash ecd09a9a44dd34581a26e1b6f157e5a2cbe03957ab9df82abd1647fa5ac00cdf -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
-> "Member Portal" page: formation documents by membership stage, a member
-> directory, and the community calendar.
+> "Member Portal" page: formation documents, community documents, quick
+> actions, a member directory, and the community calendar - all editable
+> directly in the WordPress page editor, no custom database or admin screen.
 
 ## Problem
 
 Youth Apostles members currently get formation documents, forms, and community
 info through scattered channels (email, shared drives, ad hoc links). This
-plugin gives logged-in members one page with the documents and actions
-relevant to their membership stage, plus a directory and calendar.
+plugin gives logged-in members one page with everything in one place, and lets
+a non-technical site admin manage the content by editing the portal page
+itself - no code changes, no separate dashboard screen.
 
 ## Users
 
-- **Prospective Members** - study guides, application/interview forms for that
-  stage
-- **Candidates** - candidate packets, schedules, interview forms for that stage
-- **Full Members** - ongoing formation docs, sponsor assessments, ministry and
-  policy documents
-- **Community admins/staff** - assign member stages, manage which documents
-  belong to which stage, keep the directory current
+- **Members** - any logged-in member (Prospective, Candidate, or Full Member)
+  sees the same full portal: formation documents for all three stages,
+  community documents, quick actions, the calendar, and the directory. There
+  is no per-stage hiding in v1.
+- **Community admins/staff** - a non-technical site editor. Adds and updates
+  documents, links, and the calendar by editing the block's own fields
+  directly on the portal page in WordPress - the same way they'd edit any
+  paragraph of text on a WordPress page.
 - Access tiers: logged-out visitors see nothing; every feature below requires
-  a logged-in WordPress member account
+  a logged-in WordPress account.
 
 ## Features
 
-1. **Membership stage roles** - Prospective/Candidate/Full Member WP roles (or
-   capability), with an admin way to assign a member's stage. Foundational:
-   later document scoping and the directory depend on this.
-2. **Formation document library** - custom post type/taxonomy wrapping Media
-   Library uploads, storing stage assignment, display title, and type badge
-   (PDF/FORM/DOC/AUDIO). Foundational data store for features 3, 5, 6.
-3. **Portal hero + search block** - welcome header and search across the
-   document library.
-4. **Quick actions block** - update contact info, member directory, birthdays
+Every block owns its real, final content as editable block attributes filled
+in through the WordPress page editor. No custom post type, database, or
+membership-stage roles anywhere in this plan.
+
+1. **Portal hero + search block** - welcome header and a document search
+   field (decorative for now - no backing data source to search across yet).
+2. **Quick actions block** - update contact info, member directory, birthdays
    & anniversaries, request logos (mailto link).
-5. **Formation Documents block** (headline feature) - stage-column layout
-   (Prospective / Candidate / Full Member) reading from the document library,
-   scoped to what the viewer's own stage can see.
-6. **Community Documents block** - org-wide document list (contact list,
-   stats, statutes, guidelines, branding guide) from the same library.
-7. **Community Calendar block** - embedded Google Calendar for
-   birthdays/anniversaries/events.
-8. **Access control** - gate the portal page/blocks to logged-in members only,
-   with a sensible logged-out state.
-9. **Member directory page** - full member directory with contact info, built
-   on the stage roles from feature 1.
+3. **Formation Documents block** (headline feature) - three columns
+   (Prospective / Candidate / Full Member), each an editable list of
+   documents (title + link + PDF/FORM/DOC/AUDIO badge), same for every viewer.
+4. **Community Documents block** - org-wide editable document list (contact
+   list, stats, statutes, guidelines, branding guide).
+5. **Community Calendar block** - embedded Google Calendar; the calendar
+   URL/ID is a field on the block, editable in the page editor.
+6. **Access control** - gate the portal page/blocks to logged-in members
+   only, with a sensible logged-out state.
+7. **Member directory page** - member directory built on WordPress's own
+   user list and profile fields (no custom stage/role data).
 
 ## Data model
 
-No custom database tables. Everything rides on WordPress core tables (users,
-usermeta, posts/postmeta, media).
+No custom database tables, post types, or taxonomies. Every block's content
+lives as **block attributes** stored in the portal page's own post content -
+exactly like a paragraph or image block's settings - edited live in the
+WordPress block editor.
 
-### Member (WP user)
-
-- Native WP user fields (name, email, etc.)
-- `stage` (role/capability) - one of `prospective`, `candidate`,
-  `full_member`; set via WP roles or a capability, assigned by admins
-- Contact info - extends existing WP user fields as needed
-
-### Formation Document (custom post type wrapping Media Library)
+### Document row (repeated attribute shape, used by blocks 3 and 4)
 
 - `title` (string) - display title (e.g. "Appendix B - Basics Study Guide")
 - `type` (enum) - `pdf` | `form` | `doc` | `audio`, drives the badge shown
-- `stage` (enum, nullable) - `prospective` | `candidate` | `full_member`, or
-  null for org-wide "Community Documents"
-- `attachment` (relationship) - WP Media Library attachment or external form
-  URL (forms link out rather than storing a file)
+- `url` (string) - link to the file (uploaded via the WordPress Media Library
+  picker) or an external form URL
 
-> Lock the `type` and `stage` enums early - the Formation Documents (5) and
-> Community Documents (6) blocks both query on them.
+> Lock this shape early - the Formation Documents (3) and Community Documents
+> (4) blocks both repeat it per row, and it's the one contract worth keeping
+> consistent between the two blocks.
+
+### Member (WP user)
+
+- Native WordPress user fields only (name, email, etc.) - no custom stage or
+  role field.
 
 ## Tech stack
 
 - **WordPress plugin** - `@wordpress/scripts` (Create Block tooling), plain JS
   (no TypeScript configured)
-- **PHP** - block render callbacks, WP roles/capabilities, Media Library
-  integration
-- No external framework, database, or hosting platform beyond WordPress core
+- **PHP** - block render callbacks and Media Library integration
+- No external framework, database, custom post types, or hosting platform
+  beyond WordPress core
 
 ## Monetization
 
@@ -101,7 +101,7 @@ Reference: `references/ya-portal-redesign.html` (static redesign concept) and
   download/open icon
 - Mobile-responsive: two-column community grid collapses to one column
 - Single portal page/view (block-based; no separate app routes) plus the
-  member directory (feature 9)
+  member directory (feature 7)
 
 ## Deployment
 

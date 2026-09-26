@@ -16,23 +16,24 @@ Start with your first real slice of functionality.
 
 ## Your features
 
-- [ ] 1. **Membership stage roles** - add Prospective/Candidate/Full Member WP
-      roles (or capability) and a way for admins to assign a member's stage
-- [ ] 2. **Formation document library** - custom post type or taxonomy
-      wrapping Media Library uploads, storing stage assignment, display title,
-      and type badge (PDF/FORM/DOC/AUDIO)
-- [ ] 3. **Portal hero + search block** - welcome header and document search
-      across the library from feature 2
-- [ ] 4. **Quick actions block** - update contact info, member directory,
+Every block below owns its real, final content as editable block attributes -
+a non-technical admin fills them in directly in the WordPress page editor
+(drop the block on the page, type/paste titles and links). No custom post
+type, database, or membership-stage roles anywhere in this plan: every
+logged-in member sees the same content.
+
+- [ ] 1. **Portal hero + search block** - welcome header and a document search
+      field (decorative for now - no backing data source to search yet)
+- [ ] 2. **Quick actions block** - update contact info, member directory,
       birthdays & anniversaries, request logos (mailto)
-- [ ] 5. **Formation Documents block** - stage-column layout (Prospective /
-      Candidate / Full Member) reading from the document library, scoped to
-      what the viewer's stage can see
-- [ ] 6. **Community Documents block** - org-wide document list (contact list,
-      stats, statutes, guidelines, branding guide) from the same library
-- [ ] 7. **Community Calendar block** - embedded Google Calendar for
-      birthdays/anniversaries/events
-- [ ] 8. **Access control** - gate the portal page/blocks to logged-in members
+- [ ] 3. **Formation Documents block** - three columns (Prospective /
+      Candidate / Full Member), each an editable list of documents
+      (title + link + PDF/FORM/DOC/AUDIO badge), same for every viewer
+- [ ] 4. **Community Documents block** - org-wide editable document list
+      (contact list, stats, statutes, guidelines, branding guide)
+- [ ] 5. **Community Calendar block** - embedded Google Calendar; the
+      calendar URL/ID is a field on the block, editable in the page editor
+- [ ] 6. **Access control** - gate the portal page/blocks to logged-in members
       only, with a sensible logged-out state
-- [ ] 9. **Member directory page** - full member directory with contact info,
-      built on the roles from feature 1
+- [ ] 7. **Member directory page** - member directory built on WordPress's own
+      user list and profile fields (no custom stage/role data)
