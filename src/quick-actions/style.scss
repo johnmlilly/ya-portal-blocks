@@ -1,0 +1,80 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+@use "../shared/tokens" as *;
+
+.wp-block-yamp-quick-actions {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 12px;
+	margin: 24px 0 8px;
+	font-family: $yamp-font;
+
+	.yamp-action {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		box-sizing: border-box;
+		padding: 14px 16px;
+		color: $yamp-ink;
+		text-decoration: none;
+		background: $yamp-surface;
+		border: 1px solid $yamp-line;
+		border-radius: 12px;
+		box-shadow: $yamp-shadow;
+	}
+
+	a.yamp-action {
+		transition: transform 0.12s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+
+		&:focus-visible {
+			outline: 2px solid $yamp-brand;
+			outline-offset: 2px;
+		}
+	}
+
+	.yamp-action__icon {
+		display: grid;
+		flex: none;
+		place-items: center;
+		width: 36px;
+		height: 36px;
+		color: $yamp-muted;
+		background: $yamp-bg;
+		border: 1px solid $yamp-line;
+		border-radius: 9px;
+
+		svg {
+			display: block;
+		}
+	}
+
+	.yamp-action__text {
+
+		b {
+			display: block;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 1.4;
+		}
+
+		span {
+			color: $yamp-muted;
+			font-size: 12.5px;
+			line-height: 1.4;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-yamp-quick-actions a.yamp-action {
+		transition: none;
+	}
+}

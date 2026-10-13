@@ -24,7 +24,7 @@ logged-in member sees the same content.
 
 - [x] 1. **Portal hero + search block** - welcome header and a document search
       field (decorative for now - no backing data source to search yet)
-- [ ] 2. **Quick actions block** - update contact info, member directory,
+- [x] 2. **Quick actions block** - update contact info, member directory,
       birthdays & anniversaries, request logos (mailto)
 - [ ] 3. **Formation Documents block** - three columns (Prospective /
       Candidate / Full Member), each an editable list of documents

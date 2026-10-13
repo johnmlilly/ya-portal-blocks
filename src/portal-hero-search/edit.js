@@ -9,6 +9,12 @@ import { useBlockProps } from '@wordpress/block-editor';
  * Renders the block through render.php so the editor preview and the front
  * end share one source of markup.
  *
+ * The default export is marked deprecated in favor of the named
+ * `ServerSideRender` export, but that named export only exists in WordPress
+ * 6.9+. This plugin supports 6.8 (see `Requires at least` in
+ * ya-portal-blocks.php), so keep the default import until that minimum is
+ * raised.
+ *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-server-side-render/
  */
 import ServerSideRender from '@wordpress/server-side-render';

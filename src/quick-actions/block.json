@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "yamp/quick-actions",
+	"version": "0.1.0",
+	"title": "Quick Actions",
+	"category": "widgets",
+	"icon": "screenoptions",
+	"description": "Member portal row of quick-action link cards.",
+	"example": {},
+	"attributes": {
+		"actions": {
+			"type": "array",
+			"default": [
+				{
+					"icon": "contact",
+					"label": "Update Contact Info",
+					"description": "Keep the directory current",
+					"url": ""
+				},
+				{
+					"icon": "directory",
+					"label": "Full Member Directory",
+					"description": "Find fellow members",
+					"url": ""
+				},
+				{
+					"icon": "birthdays",
+					"label": "Birthdays & Anniversaries",
+					"description": "Celebrate the community",
+					"url": ""
+				},
+				{
+					"icon": "logos",
+					"label": "Request Logos",
+					"description": "Email communications",
+					"url": ""
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ya-portal-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

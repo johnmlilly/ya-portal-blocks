@@ -18,6 +18,8 @@
 	"dependencies": {
 		"@wordpress/block-editor": "latest",
 		"@wordpress/blocks": "latest",
+		"@wordpress/components": "^42.0.0",
+		"@wordpress/element": "^9.0.0",
 		"@wordpress/i18n": "latest",
 		"@wordpress/server-side-render": "^6.33.0"
 	},
