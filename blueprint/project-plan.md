@@ -46,7 +46,8 @@ non-technical site admin, no custom database or dashboard screen required.
   statutes, guidelines, branding guide), same editable-list pattern
 - Community Calendar (Google Calendar embed; the calendar's URL/ID is a field
   on the block itself, editable in the page editor)
-- Access limited to logged-in members (no per-stage visibility restriction)
+- Access limited to logged-in members, enforced by the existing site's own
+  login requirement, not by this plugin (no per-stage visibility restriction)
 
 ## 4. Data - What are we storing?
 

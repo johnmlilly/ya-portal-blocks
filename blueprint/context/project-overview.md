@@ -1,6 +1,6 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash c95e87430b34592675325ad5c352280abbb0cbcb9b1ba28fc7007d1dba4752aa -->
+<!-- blueprint:source-hash 2ade0ae5313660783a509b523113874c2e4ba9d2ae4164b8dab388539117eb0e -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
 > "Member Portal" page: formation documents, community documents, quick
@@ -26,7 +26,8 @@ itself - no code changes, no separate dashboard screen.
   directly on the portal page in WordPress - the same way they'd edit any
   paragraph of text on a WordPress page.
 - Access tiers: logged-out visitors see nothing; every feature below requires
-  a logged-in WordPress account.
+  a logged-in WordPress account. The existing site enforces this login before
+  the portal page loads; the plugin itself does no gating.
 
 ## Features
 
@@ -47,8 +48,8 @@ membership-stage roles anywhere in this plan.
    list, stats, statutes, guidelines, branding guide).
 5. **Community Calendar block** - embedded Google Calendar; the calendar
    URL/ID is a field on the block, editable in the page editor.
-6. **Access control** - gate the portal page/blocks to logged-in members
-   only, with a sensible logged-out state.
+6. ~~**Access control**~~ - dropped: the existing site already forces members
+   to log in before reaching the portal; the plugin does no gating.
 7. **Member directory page** - member directory built on WordPress's own
    user list and profile fields (no custom stage/role data).
 8. **Upcoming events list (future release)** - branded "Today & upcoming"

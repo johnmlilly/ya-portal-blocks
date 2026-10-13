@@ -34,8 +34,9 @@ logged-in member sees the same content.
       (contact list, stats, statutes, guidelines, branding guide)
 - [x] 5. **Community Calendar block** - embedded Google Calendar; the
       calendar URL/ID is a field on the block, editable in the page editor
-- [ ] 6. **Access control** - gate the portal page/blocks to logged-in members
-      only, with a sensible logged-out state
+- 6. ~~**Access control**~~ - dropped: the existing site already requires
+      members to log in before reaching the portal, so the plugin adds no
+      gating of its own (feature number kept so later IDs stay stable)
 - [ ] 7. **Member directory page** - member directory built on WordPress's own
       user list and profile fields (no custom stage/role data)
 
