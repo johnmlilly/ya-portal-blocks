@@ -1,0 +1,10 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+// The server-rendered preview nests a second block wrapper inside the editor
+// wrapper; let the outer one size to its content in the editor.
+.wp-block-yamp-community-calendar:has(> div > .wp-block-yamp-community-calendar),
+.wp-block-yamp-community-calendar:has(> .wp-block-yamp-community-calendar) {
+	height: auto;
+}

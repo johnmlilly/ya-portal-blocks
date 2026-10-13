@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once __DIR__ . '/includes/document-list.php';
+require_once __DIR__ . '/includes/calendar.php';
 require_once __DIR__ . '/includes/patterns.php';
 /**
  * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)

@@ -32,9 +32,20 @@ logged-in member sees the same content.
       link, type icon tile + badge), same for every viewer
 - [x] 4. **Community Documents block** - org-wide editable document list
       (contact list, stats, statutes, guidelines, branding guide)
-- [ ] 5. **Community Calendar block** - embedded Google Calendar; the
+- [x] 5. **Community Calendar block** - embedded Google Calendar; the
       calendar URL/ID is a field on the block, editable in the page editor
 - [ ] 6. **Access control** - gate the portal page/blocks to logged-in members
       only, with a sensible logged-out state
 - [ ] 7. **Member directory page** - member directory built on WordPress's own
       user list and profile fields (no custom stage/role data)
+
+## Future releases
+
+- [ ] 8. **Upcoming events list (Google Calendar API)** - a branded "Today &
+      upcoming" list of today's and the next few days' events, placed above
+      the welcome heading, fetched server-side from the Google Calendar API
+      (public calendar; recurring events expanded by Google) and cached.
+      Needs a Google Cloud API key restricted to the Calendar API, stored as
+      a block field and never output. Replaces the interim Google agenda
+      embed (a second Community Calendar block with `mode=AGENDA`).
+      Blocked until the team grants calendar/API access.

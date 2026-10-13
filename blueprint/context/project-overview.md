@@ -1,6 +1,6 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash 38c92c8a0de308e3c04e209ee79252ff11bbcb35788bd17f90d258acc2d6d671 -->
+<!-- blueprint:source-hash c95e87430b34592675325ad5c352280abbb0cbcb9b1ba28fc7007d1dba4752aa -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
 > "Member Portal" page: formation documents, community documents, quick
@@ -51,6 +51,10 @@ membership-stage roles anywhere in this plan.
    only, with a sensible logged-out state.
 7. **Member directory page** - member directory built on WordPress's own
    user list and profile fields (no custom stage/role data).
+8. **Upcoming events list (future release)** - branded "Today & upcoming"
+   list from the Google Calendar API (server-side, cached, API key as a
+   never-output block field). Blocked on team API access; until then a
+   Community Calendar block in Google's agenda mode fills the role.
 
 ## Data model
 

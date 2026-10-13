@@ -13,9 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Registers the "Member Portal" pattern category and its patterns.
  *
  * Community section: a "Community" heading over a 1/3 | 2/3 columns layout,
- * documents on the left and the (more prominent) calendar on the right. The
- * right column holds a placeholder paragraph until the Calendar block exists.
- * Core Columns stacks the two columns on narrow screens.
+ * Community Documents on the left and the (more prominent) Community Calendar
+ * on the right. Core Columns stacks the two columns on narrow screens.
  */
 function yamp_register_portal_patterns() {
 	register_block_pattern_category(
@@ -39,9 +38,7 @@ function yamp_register_portal_patterns() {
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"66.66%"} -->
-<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:paragraph -->
-<p>' . esc_html__( 'Community Calendar goes here.', 'ya-portal-blocks' ) . '</p>
-<!-- /wp:paragraph --></div>
+<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:yamp/community-calendar /--></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->',
 		)
