@@ -2,7 +2,8 @@
  * Shared document-list styles for the portal document blocks.
  *
  * Not a block: include inside a block's root selector with
- * `@use "../shared/documents" as *;` then `@include yamp-document-list;`.
+ * `@use "../shared/documents" as *;` then `@include yamp-document-list;`
+ * (rows) and `@include yamp-card( "yamp-stage" );` (card shell).
  */
 
 @use "tokens" as *;
@@ -110,5 +111,44 @@
 		padding: 14px 18px;
 		color: $yamp-muted;
 		font-size: 13px;
+	}
+}
+
+// Document card shell: surface, border, radius, shadow, and a head with an
+// icon and title. $base names the BEM block, e.g. "yamp-stage" yields
+// .yamp-stage, .yamp-stage__head, .yamp-stage__icon, .yamp-stage__title.
+@mixin yamp-card($base) {
+
+	.#{$base} {
+		overflow: hidden;
+		background: $yamp-surface;
+		border: 1px solid $yamp-line;
+		border-radius: 14px;
+		box-shadow: $yamp-shadow;
+	}
+
+	.#{$base}__head {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 14px 16px;
+		border-bottom: 1px solid $yamp-line;
+	}
+
+	.#{$base}__icon {
+		display: grid;
+		flex: none;
+		place-items: center;
+		color: $yamp-muted;
+
+		svg {
+			display: block;
+		}
+	}
+
+	.#{$base}__title {
+		margin: 0;
+		color: $yamp-ink;
+		font: 600 15px / 1.4 $yamp-font;
 	}
 }

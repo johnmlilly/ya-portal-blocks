@@ -30,7 +30,7 @@ logged-in member sees the same content.
       Prospective / Candidate / Full Member) plus an optional "For All
       Members" list, each an editable list of documents (title + type +
       link, type icon tile + badge), same for every viewer
-- [ ] 4. **Community Documents block** - org-wide editable document list
+- [x] 4. **Community Documents block** - org-wide editable document list
       (contact list, stats, statutes, guidelines, branding guide)
 - [ ] 5. **Community Calendar block** - embedded Google Calendar; the
       calendar URL/ID is a field on the block, editable in the page editor

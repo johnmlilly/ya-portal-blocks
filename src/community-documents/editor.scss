@@ -1,0 +1,10 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+// The server-rendered preview nests a second block wrapper inside the editor
+// wrapper; let the outer one size to its content in the editor.
+.wp-block-yamp-community-documents:has(> div > .wp-block-yamp-community-documents),
+.wp-block-yamp-community-documents:has(> .wp-block-yamp-community-documents) {
+	height: auto;
+}

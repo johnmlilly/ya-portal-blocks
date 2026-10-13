@@ -1,0 +1,22 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+@use "../shared/tokens" as *;
+@use "../shared/documents" as *;
+
+.wp-block-yamp-community-documents {
+	height: 100%;
+	color: $yamp-ink;
+	font-family: $yamp-font;
+
+	// Fill the column so the card lines up with the calendar beside it.
+	.yamp-card {
+		box-sizing: border-box;
+		height: 100%;
+	}
+
+	@include yamp-card("yamp-card");
+	@include yamp-document-list;
+}
