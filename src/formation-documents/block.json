@@ -1,0 +1,140 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "yamp/formation-documents",
+	"version": "0.1.0",
+	"title": "Formation Documents",
+	"category": "widgets",
+	"icon": "media-document",
+	"description": "Member portal formation documents, grouped into stage columns.",
+	"example": {},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Formation Documents"
+		},
+		"general": {
+			"type": "object",
+			"default": {
+				"heading": "For All Members",
+				"documents": []
+			}
+		},
+		"stages": {
+			"type": "array",
+			"default": [
+				{
+					"icon": "sprout",
+					"heading": "Prospective Members",
+					"documents": [
+						{
+							"title": "Appendix B – Basics Study Guide",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "Appendix C – YAs Prayer & Council",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "Appendix E – Basics Survey",
+							"type": "form",
+							"url": ""
+						},
+						{
+							"title": "Appendix F – Prospective Candidate Interview",
+							"type": "form",
+							"url": ""
+						},
+						{
+							"title": "Prospective Candidate Packet",
+							"type": "pdf",
+							"url": ""
+						}
+					]
+				},
+				{
+					"icon": "cross",
+					"heading": "Candidates",
+					"documents": [
+						{
+							"title": "Sharing Group List (4/2/2022)",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "2024 Formation Schedule",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "Candidate Formation Packet",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "St. Francis of Assisi Packet",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "Appendix K – Blank Formation Form",
+							"type": "form",
+							"url": ""
+						},
+						{
+							"title": "Six-Month Candidate Interview",
+							"type": "form",
+							"url": ""
+						}
+					]
+				},
+				{
+					"icon": "cross-bold",
+					"heading": "Full Members",
+					"documents": [
+						{
+							"title": "Sharing Group List (4/2/2022)",
+							"type": "pdf",
+							"url": ""
+						},
+						{
+							"title": "Appendix H – First Interview",
+							"type": "form",
+							"url": ""
+						},
+						{
+							"title": "Appendix I – Second Interview",
+							"type": "form",
+							"url": ""
+						},
+						{
+							"title": "Appendix J – Sponsor's Assessment",
+							"type": "form",
+							"url": ""
+						},
+						{
+							"title": "Instructions for Ministry Recommendation",
+							"type": "doc",
+							"url": ""
+						},
+						{
+							"title": "Healthy and Holy Policy",
+							"type": "pdf",
+							"url": ""
+						}
+					]
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ya-portal-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

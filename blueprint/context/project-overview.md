@@ -1,6 +1,6 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash ecd09a9a44dd34581a26e1b6f157e5a2cbe03957ab9df82abd1647fa5ac00cdf -->
+<!-- blueprint:source-hash 38c92c8a0de308e3c04e209ee79252ff11bbcb35788bd17f90d258acc2d6d671 -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
 > "Member Portal" page: formation documents, community documents, quick
@@ -36,11 +36,13 @@ membership-stage roles anywhere in this plan.
 
 1. **Portal hero + search block** - welcome header and a document search
    field (decorative for now - no backing data source to search across yet).
-2. **Quick actions block** - update contact info, member directory, birthdays
-   & anniversaries, request logos (mailto link).
-3. **Formation Documents block** (headline feature) - three columns
-   (Prospective / Candidate / Full Member), each an editable list of
-   documents (title + link + PDF/FORM/DOC/AUDIO badge), same for every viewer.
+2. **Quick actions block** - editable, reorderable link cards, starting with
+   update contact info, member directory, birthdays & anniversaries, request
+   logos (mailto link).
+3. **Formation Documents block** (headline feature) - flexible stage columns
+   (default Prospective / Candidate / Full Member; add, remove, reorder) plus
+   an optional "For All Members" list above them, each an editable list of
+   documents (title + type + link), same for every viewer.
 4. **Community Documents block** - org-wide editable document list (contact
    list, stats, statutes, guidelines, branding guide).
 5. **Community Calendar block** - embedded Google Calendar; the calendar
@@ -60,9 +62,14 @@ WordPress block editor.
 ### Document row (repeated attribute shape, used by blocks 3 and 4)
 
 - `title` (string) - display title (e.g. "Appendix B - Basics Study Guide")
-- `type` (enum) - `pdf` | `form` | `doc` | `audio`, drives the badge shown
-- `url` (string) - link to the file (uploaded via the WordPress Media Library
-  picker) or an external form URL
+- `type` (enum) - `pdf` | `form` | `doc` | `audio`, drives the icon tile and
+  badge (one shared color pair per type); unknown values render as `pdf`
+- `url` (string) - link to the file (picked from the WordPress Media Library)
+  or any pasted URL; empty renders a non-clickable row
+
+Shared implementation: `includes/document-list.php` (renderer),
+`src/shared/documents.scss` (styles), `src/shared/document-list-control.js`
+(sidebar editor).
 
 > Lock this shape early - the Formation Documents (3) and Community Documents
 > (4) blocks both repeat it per row, and it's the one contract worth keeping
@@ -92,13 +99,14 @@ Reference: `references/ya-portal-redesign.html` (static redesign concept) and
 `references/youth-apostles-brand-guide-2025.pdf` (brand guide).
 
 - Card-based layout: hero + search, quick-action cards, "Formation Documents"
-  with one card-column per stage, two-column "Community" section (community
+  with a full-width all-members card above one card-column per stage,
+  two-column "Community" section (community
   documents + calendar)
 - Brand palette: navy ink (`#152B5C`), warm off-white background (`#FBFAF7`),
   gold accent (`#998631`), green/red status colors for badges, Montserrat
   typeface
-- Document rows show a colored type badge (PDF/FORM/DOC/AUDIO) and a
-  download/open icon
+- Document rows show a colored type icon tile, the title, a matching type
+  badge (PDF/FORM/DOC/AUDIO), and an open arrow when linked
 - Mobile-responsive: two-column community grid collapses to one column
 - Single portal page/view (block-based; no separate app routes) plus the
   member directory (feature 7)

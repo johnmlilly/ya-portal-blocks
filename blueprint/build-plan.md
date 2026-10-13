@@ -26,9 +26,10 @@ logged-in member sees the same content.
       field (decorative for now - no backing data source to search yet)
 - [x] 2. **Quick actions block** - update contact info, member directory,
       birthdays & anniversaries, request logos (mailto)
-- [ ] 3. **Formation Documents block** - three columns (Prospective /
-      Candidate / Full Member), each an editable list of documents
-      (title + link + PDF/FORM/DOC/AUDIO badge), same for every viewer
+- [x] 3. **Formation Documents block** - flexible stage columns (default
+      Prospective / Candidate / Full Member) plus an optional "For All
+      Members" list, each an editable list of documents (title + type +
+      link, type icon tile + badge), same for every viewer
 - [ ] 4. **Community Documents block** - org-wide editable document list
       (contact list, stats, statutes, guidelines, branding guide)
 - [ ] 5. **Community Calendar block** - embedded Google Calendar; the

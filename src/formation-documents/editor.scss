@@ -1,0 +1,10 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+// The server-rendered preview nests a second block wrapper inside the editor
+// wrapper; keep the outer one a plain container so margins apply once.
+.wp-block-yamp-formation-documents:has(> div > .wp-block-yamp-formation-documents),
+.wp-block-yamp-formation-documents:has(> .wp-block-yamp-formation-documents) {
+	margin: 0;
+}

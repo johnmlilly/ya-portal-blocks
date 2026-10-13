@@ -1,0 +1,114 @@
+/**
+ * Shared document-list styles for the portal document blocks.
+ *
+ * Not a block: include inside a block's root selector with
+ * `@use "../shared/documents" as *;` then `@include yamp-document-list;`.
+ */
+
+@use "tokens" as *;
+
+@mixin yamp-document-list {
+
+	.yamp-docs {
+		margin: 0;
+		padding: 8px;
+		list-style: none;
+
+		li {
+			margin: 0;
+		}
+	}
+
+	.yamp-doc {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 9px 10px;
+		color: $yamp-ink;
+		text-decoration: none;
+		border-radius: 9px;
+	}
+
+	a.yamp-doc {
+
+		&:hover {
+			background: $yamp-bg;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $yamp-brand;
+			outline-offset: -2px;
+		}
+	}
+
+	// One color pair per document type, shared by the icon tile and badge.
+	.yamp-type--pdf {
+		color: $yamp-red;
+		background: $yamp-red-soft;
+	}
+
+	.yamp-type--form {
+		color: $yamp-brand;
+		background: $yamp-brand-soft;
+	}
+
+	.yamp-type--doc {
+		color: $yamp-green;
+		background: $yamp-green-soft;
+	}
+
+	.yamp-type--audio {
+		color: $yamp-gold;
+		background: $yamp-gold-soft;
+	}
+
+	.yamp-doc__icon {
+		display: grid;
+		flex: none;
+		place-items: center;
+		width: 28px;
+		height: 28px;
+		border-radius: 7px;
+
+		svg {
+			display: block;
+		}
+	}
+
+	.yamp-doc__badge {
+		flex: none;
+		padding: 2px 6px;
+		font: 700 10px / 1.4 $yamp-font;
+		letter-spacing: 0.06em;
+		border-radius: 5px;
+	}
+
+	.yamp-doc__title {
+		flex: 1;
+		font-size: 14px;
+		line-height: 1.4;
+	}
+
+	.yamp-doc__arrow {
+		flex: none;
+		color: $yamp-muted;
+		opacity: 0.6;
+
+		svg {
+			display: block;
+		}
+	}
+
+	a.yamp-doc:hover .yamp-doc__arrow,
+	a.yamp-doc:focus-visible .yamp-doc__arrow {
+		color: $yamp-ink;
+		opacity: 1;
+	}
+
+	.yamp-docs__empty {
+		margin: 0;
+		padding: 14px 18px;
+		color: $yamp-muted;
+		font-size: 13px;
+	}
+}

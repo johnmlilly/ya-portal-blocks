@@ -1,0 +1,72 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+@use "../shared/tokens" as *;
+@use "../shared/documents" as *;
+
+.wp-block-yamp-formation-documents {
+	margin: 36px 0;
+	color: $yamp-ink;
+	font-family: $yamp-font;
+
+	.yamp-section__title {
+		margin: 0 0 6px;
+		color: $yamp-ink;
+		font: 600 22px / 1.3 $yamp-font;
+	}
+
+	.yamp-path {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 16px;
+	}
+
+	.yamp-stage {
+		overflow: hidden;
+		background: $yamp-surface;
+		border: 1px solid $yamp-line;
+		border-radius: 14px;
+		box-shadow: $yamp-shadow;
+	}
+
+	// Full-width "all members" card above the columns; its list flows into
+	// as many columns as fit.
+	.yamp-stage--general {
+		margin-bottom: 16px;
+
+		.yamp-docs {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			column-gap: 8px;
+		}
+	}
+
+	.yamp-stage__head {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 14px 16px;
+		border-bottom: 1px solid $yamp-line;
+	}
+
+	.yamp-stage__icon {
+		display: grid;
+		flex: none;
+		place-items: center;
+		color: $yamp-muted;
+
+		svg {
+			display: block;
+		}
+	}
+
+	.yamp-stage__title {
+		margin: 0;
+		color: $yamp-ink;
+		font: 600 15px / 1.4 $yamp-font;
+	}
+
+	@include yamp-document-list;
+}

@@ -32,12 +32,16 @@ non-technical site admin, no custom database or dashboard screen required.
 
 - Document search across the documents on the page (decorative for v1 - no
   backing data source yet, may become a simple client-side filter later)
-- Quick actions: update contact info, full member directory, birthdays &
-  anniversaries, request logo files (mailto link)
-- Formation Documents section, three columns (Prospective / Candidate / Full
-  Member), each an editable list of documents (PDF/FORM/DOC/AUDIO badge +
-  title + link) that the site editor fills in directly in the block, visible
-  to every logged-in member
+- Quick actions: an editable, reorderable row of link cards (icon, label,
+  description, link), starting with update contact info, full member
+  directory, birthdays & anniversaries, and request logo files (mailto link)
+- Formation Documents section: a flexible set of stage columns (starting with
+  Prospective / Candidate / Full Member, each with its own icon and heading;
+  columns can be added, removed, and reordered), each an editable list of
+  documents (title + type + link), plus an optional "For All Members" list
+  above the columns for general documents relevant to every member. The site
+  editor fills it in directly in the block; links can be pasted or picked
+  from the Media Library. Visible to every logged-in member
 - Community Documents section (org-wide docs: contact list, membership stats,
   statutes, guidelines, branding guide), same editable-list pattern
 - Community Calendar (Google Calendar embed; the calendar's URL/ID is a field
@@ -80,13 +84,15 @@ Reference: `references/ya-portal-redesign.html` (static redesign concept) and
 typography, logo usage).
 
 - Clean, card-based layout: hero + search, a row of quick-action cards, a
-  "Formation Documents" section with one card-column per stage, a two-column
+  "Formation Documents" section with a full-width all-members card above one
+  card-column per stage, a two-column
   "Community" section (community documents + calendar)
 - Brand palette from the redesign concept: navy ink (`#152B5C`), warm off-white
   background (`#FBFAF7`), gold accent (`#998631`), green/red status colors for
   badges, Montserrat typeface
-- Document rows show a colored type badge (PDF/FORM/DOC/AUDIO) and a
-  download/open icon
+- Document rows show a colored type icon tile, the title, a matching type
+  badge (PDF/FORM/DOC/AUDIO, same color pair as the tile), and an open arrow
+  when linked; this row design is shared by every document block
 - Mobile-responsive (two-column community grid collapses to one column)
 
 ## 8. Deployment - Where and how will this ship?
