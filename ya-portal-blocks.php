@@ -28,3 +28,19 @@ function yamp_ya_portal_blocks_block_init() {
 	wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
 }
 add_action( 'init', 'yamp_ya_portal_blocks_block_init' );
+
+/**
+ * Loads the Montserrat brand font shared by every portal block.
+ *
+ * `enqueue_block_assets` fires on the front end and inside the editor canvas,
+ * so the font loads once for all blocks in both places.
+ */
+function yamp_enqueue_portal_font() {
+	wp_enqueue_style(
+		'yamp-portal-font',
+		'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap',
+		array(),
+		null
+	);
+}
+add_action( 'enqueue_block_assets', 'yamp_enqueue_portal_font' );

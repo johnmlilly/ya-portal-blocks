@@ -255,6 +255,10 @@ WordPress plugin built with `@wordpress/scripts` (Create Block scaffold).
 - Lint JS: `npm run lint:js`
 - Lint CSS: `npm run lint:css`
 - Package plugin zip: `npm run plugin-zip`
+- Local WordPress (Playground, no Docker): `npm run playground` - mounts and
+  activates this plugin, logs in as admin, serves at `http://127.0.0.1:9400`.
+  Run alongside `npm run start` and refresh after each rebuild. Site content
+  resets when the server stops.
 
 No unit test runner configured yet. Run `/tests` or `$tests` to add one and
 update this section with the real test commands.

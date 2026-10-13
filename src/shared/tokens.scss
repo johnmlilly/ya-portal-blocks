@@ -1,0 +1,23 @@
+/**
+ * Shared brand tokens for the member portal blocks.
+ *
+ * Palette and type come from references/ya-portal-redesign.html. Not a block:
+ * each block's stylesheet pulls these in with `@use '../shared/tokens' as *`.
+ */
+
+$yamp-bg: #fbfaf7;
+$yamp-surface: #fff;
+$yamp-ink: #152b5c;
+$yamp-muted: #5b6478;
+$yamp-line: #e6e2d8;
+$yamp-brand: #152b5c;
+$yamp-brand-soft: #e9edf6;
+$yamp-gold: #998631;
+$yamp-gold-soft: #f3efdd;
+$yamp-green: #3e7a4e;
+$yamp-green-soft: #e8f2ea;
+$yamp-red: #b0483c;
+$yamp-red-soft: #f7e7e4;
+$yamp-shadow: 0 1px 2px rgba(27, 42, 74, 0.06), 0 4px 14px rgba(27, 42, 74, 0.05);
+
+$yamp-font: "Montserrat", system-ui, sans-serif;

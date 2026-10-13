@@ -22,7 +22,7 @@ a non-technical admin fills them in directly in the WordPress page editor
 type, database, or membership-stage roles anywhere in this plan: every
 logged-in member sees the same content.
 
-- [ ] 1. **Portal hero + search block** - welcome header and a document search
+- [x] 1. **Portal hero + search block** - welcome header and a document search
       field (decorative for now - no backing data source to search yet)
 - [ ] 2. **Quick actions block** - update contact info, member directory,
       birthdays & anniversaries, request logos (mailto)

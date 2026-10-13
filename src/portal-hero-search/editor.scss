@@ -1,0 +1,11 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+@use "../shared/tokens" as *;
+
+// The server-rendered preview nests a second block wrapper inside the editor
+// wrapper; drop its top padding so the hero is not double-spaced.
+.wp-block-yamp-portal-hero-search .wp-block-yamp-portal-hero-search {
+	padding-top: 0;
+}
