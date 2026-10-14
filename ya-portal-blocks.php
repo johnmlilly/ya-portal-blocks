@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Member Portal
- * Description:       Example block scaffolded with Create Block tool.
- * Version:           0.1.0
+ * Description:       Blocks for the Youth Apostles member portal: formation and community documents, quick actions, the community calendar, and fundraising.
+ * Version:           1.0.0
  * Requires at least: 6.8
  * Requires PHP:      7.4
- * Author:            The WordPress Contributors
+ * Author:            John Lilly
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       ya-portal-blocks
