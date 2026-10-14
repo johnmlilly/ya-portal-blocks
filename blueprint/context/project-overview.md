@@ -1,6 +1,6 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash 2ade0ae5313660783a509b523113874c2e4ba9d2ae4164b8dab388539117eb0e -->
+<!-- blueprint:source-hash 2f6e3f003d5e48aa0fff600056a67447a9150559809d82f09212d8378d938971 -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
 > "Member Portal" page: formation documents, community documents, quick
@@ -56,6 +56,9 @@ membership-stage roles anywhere in this plan.
    list from the Google Calendar API (server-side, cached, API key as a
    never-output block field). Blocked on team API access; until then a
    Community Calendar block in Google's agenda mode fills the role.
+9. **Development block** - fundraising section: editable upcoming events
+   list beside development contacts (Fr. Jack Peterson, Tyler Fabian) and
+   Donate / Legacy Giving / Donor Portal buttons.
 
 ## Data model
 
@@ -79,6 +82,19 @@ Shared implementation: `includes/document-list.php` (renderer),
 > Lock this shape early - the Formation Documents (3) and Community Documents
 > (4) blocks both repeat it per row, and it's the one contract worth keeping
 > consistent between the two blocks.
+
+### Development block attributes (block 9)
+
+- **Event row** (repeated): `date`, `title`, `timeLocation` (e.g.
+  "6:30 PM · Location TBD"), `url` (optional link)
+  > TODO: date storage format (ISO date vs free text) and whether past
+  > events auto-hide - decide in `/feature 9`.
+- **Contact row** (repeated): `name`, `title`, `email` (mailto). Defaults
+  from the public Office Staff page: Fr. Jack Peterson, YA - Director of
+  Mission and Development; Tyler Fabian - Senior Development Officer; both
+  `development@youthapostles.org`
+- **Giving buttons**: Donate (`/support?form=donate`, primary), Legacy Giving
+  (`/waystogive`), Donor Portal (`donor.youthapostles.org`)
 
 ### Member (WP user)
 
@@ -106,7 +122,9 @@ Reference: `references/ya-portal-redesign.html` (static redesign concept) and
 - Card-based layout: hero + search, quick-action cards, "Formation Documents"
   with a full-width all-members card above one card-column per stage,
   two-column "Community" section (community
-  documents + calendar)
+  documents + calendar), then a two-column "Development" section (upcoming
+  events with gold date chips + contact cards with initials avatars and
+  small Donate/Legacy Giving/Donor Portal buttons)
 - Brand palette: navy ink (`#152B5C`), warm off-white background (`#FBFAF7`),
   gold accent (`#998631`), green/red status colors for badges, Montserrat
   typeface

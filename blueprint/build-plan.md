@@ -39,6 +39,10 @@ logged-in member sees the same content.
       gating of its own (feature number kept so later IDs stay stable)
 - [ ] 7. **Member directory page** - member directory built on WordPress's own
       user list and profile fields (no custom stage/role data)
+- [ ] 9. **Development block** - fundraising section: editable upcoming
+      events list (date, title, time/location, link) beside development
+      contacts (Fr. Jack Peterson, Tyler Fabian - name, title, email) and
+      Donate / Legacy Giving / Donor Portal buttons; see mockup
 
 ## Future releases
 

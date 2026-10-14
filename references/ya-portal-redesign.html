@@ -72,6 +72,25 @@ section{margin:36px 0}
 .cal{background:var(--bg);border:1px dashed var(--line);border-radius:10px;height:290px;display:grid;place-items:center;color:var(--muted);font-size:13.5px;text-align:center;padding:16px}
 .note{margin-top:12px;font-size:13px;color:var(--muted)}
 .note a{color:var(--brand);font-weight:600}
+
+/* Development: events + contacts */
+.event,.contact{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:9px}
+.event:hover,.contact:hover{background:var(--bg)}
+.event:focus-visible,.contact:focus-visible{outline:2px solid var(--brand);outline-offset:-2px}
+.date-chip{width:44px;flex:none;text-align:center;background:var(--gold-soft);color:var(--gold);border-radius:8px;padding:5px 0;line-height:1.1}
+.date-chip small{display:block;font:700 10.5px "Montserrat";letter-spacing:.05em}
+.date-chip b{font-size:17px}
+.avatar{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);font-weight:700;font-size:13.5px}
+.event .t,.contact .t{flex:1;min-width:0}
+.event .t b,.contact .t b{display:block;font-size:14px;font-weight:600}
+.event .t span,.contact .t span{display:block;color:var(--muted);font-size:12.5px}
+.event .dl{color:var(--muted);flex:none}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--brand);font-size:12.5px;font-weight:600;transition:background .12s ease}
+.btn:hover{background:var(--bg)}
+.btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.btn-primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand);opacity:.9}
 footer{border-top:1px solid var(--line);margin-top:48px;padding:20px 0 40px;color:var(--muted);font-size:13px}
 svg{display:block}
 @media (prefers-reduced-motion: reduce){.action{transition:none}}
@@ -155,6 +174,30 @@ svg{display:block}
         <h4><span class="sic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span> Community Calendar</h4>
         <div class="cal">Google Calendar embed<br>(birthdays, anniversaries, events — unchanged)</div>
         <p class="note">Need logo files? Email <a href="#">communications@youthapostles.org</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Development: fundraising events (editor-entered) + development office contacts -->
+  <section>
+    <div class="sec-head"><h3>Development</h3></div>
+    <p class="sec-sub">Support our community’s mission through fundraising events and giving.</p>
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="sic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span> Upcoming Events</h4>
+        <ul style="list-style:none;padding:0">
+          <li><a class="event" href="#"><span class="date-chip"><small>NOV</small><b>8</b></span><span class="t"><b>Annual Benefit Dinner</b><span>6:30 PM · Location TBD</span></span><span class="dl">↗</span></a></li>
+          <li><a class="event" href="#"><span class="date-chip"><small>DEC</small><b>2</b></span><span class="t"><b>Giving Tuesday</b><span>All day · Online</span></span><span class="dl">↗</span></a></li>
+          <li><a class="event" href="#"><span class="date-chip"><small>MAY</small><b>15</b></span><span class="t"><b>Spring Golf Outing</b><span>8:00 AM · Location TBD</span></span><span class="dl">↗</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="sic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Development Contacts</h4>
+        <ul style="list-style:none;padding:0">
+          <li><a class="contact" href="mailto:development@youthapostles.org"><span class="avatar" aria-hidden="true">JP</span><span class="t"><b>Fr. Jack Peterson, YA</b><span>Director of Mission and Development</span><span>development@youthapostles.org</span></span></a></li>
+          <li><a class="contact" href="mailto:development@youthapostles.org"><span class="avatar" aria-hidden="true">TF</span><span class="t"><b>Tyler Fabian</b><span>Senior Development Officer</span><span>development@youthapostles.org</span></span></a></li>
+        </ul>
+        <div class="btns"><a class="btn btn-primary" href="https://www.youthapostles.org/support?form=donate">Donate</a><a class="btn" href="https://www.youthapostles.org/waystogive">Legacy Giving</a><a class="btn" href="https://donor.youthapostles.org">Donor Portal</a></div>
       </div>
     </div>
   </section>
