@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "yamp/development",
+	"version": "0.1.0",
+	"title": "Development",
+	"category": "widgets",
+	"icon": "heart",
+	"description": "Member portal fundraising section: upcoming events beside development contacts and giving links.",
+	"example": {},
+	"attributes": {
+		"eventsHeading": {
+			"type": "string",
+			"default": "Upcoming Events"
+		},
+		"events": {
+			"type": "array",
+			"default": []
+		},
+		"contactsHeading": {
+			"type": "string",
+			"default": "Development Contacts"
+		},
+		"contacts": {
+			"type": "array",
+			"default": [
+				{
+					"name": "Fr. Jack Peterson, YA",
+					"title": "Director of Mission and Development",
+					"email": "development@youthapostles.org"
+				},
+				{
+					"name": "Tyler Fabian",
+					"title": "Senior Development Officer",
+					"email": "development@youthapostles.org"
+				}
+			]
+		},
+		"givingLinks": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Donate",
+					"url": "https://www.youthapostles.org/support?form=donate"
+				},
+				{
+					"label": "Legacy Giving",
+					"url": "https://www.youthapostles.org/waystogive"
+				},
+				{
+					"label": "Donor Portal",
+					"url": "https://donor.youthapostles.org"
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ya-portal-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

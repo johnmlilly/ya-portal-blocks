@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Community section: a "Community" heading over a 1/3 | 2/3 columns layout,
  * Community Documents on the left and the (more prominent) Community Calendar
  * on the right. Core Columns stacks the two columns on narrow screens.
+ *
+ * Development section: a "Development" heading and short intro over the
+ * Development block, which lays out its own two cards.
  */
 function yamp_register_portal_patterns() {
 	register_block_pattern_category(
@@ -41,6 +44,24 @@ function yamp_register_portal_patterns() {
 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:yamp/community-calendar /--></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->',
+		)
+	);
+
+	register_block_pattern(
+		'yamp/development-section',
+		array(
+			'title'       => __( 'Development section', 'ya-portal-blocks' ),
+			'description' => __( 'Development heading and intro over upcoming events and development contacts.', 'ya-portal-blocks' ),
+			'categories'  => array( 'yamp-portal' ),
+			'content'     => '<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">' . esc_html__( 'Development', 'ya-portal-blocks' ) . '</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>' . esc_html__( 'Support our community’s mission through fundraising events and giving.', 'ya-portal-blocks' ) . '</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:yamp/development /-->',
 		)
 	);
 }

@@ -1,0 +1,181 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+@use "../shared/tokens" as *;
+@use "../shared/documents" as *;
+
+.wp-block-yamp-development {
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: 16px;
+	align-items: start;
+	color: $yamp-ink;
+	font-family: $yamp-font;
+
+	@media (max-width: 820px) {
+		grid-template-columns: 1fr;
+	}
+
+	@include yamp-card("yamp-dev-card");
+
+	.yamp-dev__list {
+		margin: 0;
+		padding: 8px;
+		list-style: none;
+
+		li {
+			margin: 0;
+		}
+	}
+
+	.yamp-dev__row {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		padding: 9px 10px;
+		color: $yamp-ink;
+		text-decoration: none;
+		border-radius: 9px;
+	}
+
+	a.yamp-dev__row {
+
+		&:hover {
+			background: $yamp-bg;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $yamp-brand;
+			outline-offset: -2px;
+		}
+	}
+
+	.yamp-dev__date {
+		flex: none;
+		box-sizing: border-box;
+		width: 44px;
+		padding: 5px 0;
+		color: $yamp-gold;
+		line-height: 1.1;
+		text-align: center;
+		background: $yamp-gold-soft;
+		border-radius: 8px;
+
+		small {
+			display: block;
+			font: 700 10.5px / 1.1 $yamp-font;
+			letter-spacing: 0.05em;
+		}
+
+		b {
+			font-size: 17px;
+		}
+	}
+
+	.yamp-dev__avatar {
+		display: grid;
+		flex: none;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		color: $yamp-brand;
+		font-size: 13.5px;
+		font-weight: 700;
+		background: $yamp-brand-soft;
+		border-radius: 50%;
+	}
+
+	.yamp-dev__text {
+		flex: 1;
+		min-width: 0;
+
+		b {
+			display: block;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 1.4;
+		}
+
+		span {
+			display: block;
+			color: $yamp-muted;
+			font-size: 12.5px;
+			line-height: 1.4;
+			overflow-wrap: anywhere;
+		}
+	}
+
+	.yamp-dev__arrow {
+		flex: none;
+		color: $yamp-muted;
+		opacity: 0.6;
+
+		svg {
+			display: block;
+		}
+	}
+
+	a.yamp-dev__row:hover .yamp-dev__arrow,
+	a.yamp-dev__row:focus-visible .yamp-dev__arrow {
+		color: $yamp-ink;
+		opacity: 1;
+	}
+
+	.yamp-dev__empty {
+		margin: 0;
+		padding: 14px 18px;
+		color: $yamp-muted;
+		font-size: 13px;
+	}
+
+	.yamp-dev__btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		padding: 4px 18px 16px;
+	}
+
+	.yamp-dev__btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 6px 12px;
+		color: $yamp-brand;
+		font-size: 12.5px;
+		font-weight: 600;
+		line-height: 1.4;
+		text-decoration: none;
+		background: $yamp-surface;
+		border: 1px solid $yamp-line;
+		border-radius: 8px;
+		transition: background 0.12s ease;
+
+		&:hover {
+			background: $yamp-bg;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $yamp-brand;
+			outline-offset: 2px;
+		}
+	}
+
+	.yamp-dev__btn--primary {
+		color: #fff;
+		background: $yamp-brand;
+		border-color: $yamp-brand;
+
+		&:hover {
+			background: $yamp-brand;
+			opacity: 0.9;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-yamp-development .yamp-dev__btn {
+		transition: none;
+	}
+}
