@@ -30,7 +30,7 @@ $yamp_icons = array(
 	'link'      => '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
 );
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo get_block_wrapper_attributes(); ?> data-yamp-search-group>
 	<?php
 	foreach ( $yamp_actions as $yamp_action ) :
 		if ( ! is_array( $yamp_action ) ) {
@@ -45,11 +45,14 @@ $yamp_icons = array(
 			. '<span class="yamp-action__text"><b>' . esc_html( $yamp_label ) . '</b>'
 			. '<span>' . esc_html( $yamp_description ) . '</span></span>';
 
+		// The hero search filter matches cards on their label and description.
+		$yamp_search = ' data-yamp-search="' . esc_attr( trim( $yamp_label . ' ' . $yamp_description ) ) . '"';
+
 		if ( '' !== $yamp_url ) {
 			// $yamp_body is built only from escaped text and the static icon map above.
-			echo '<a class="yamp-action" href="' . $yamp_url . '">' . $yamp_body . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<a class="yamp-action" href="' . $yamp_url . '"' . $yamp_search . '>' . $yamp_body . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
-			echo '<div class="yamp-action yamp-action--no-link">' . $yamp_body . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<div class="yamp-action yamp-action--no-link"' . $yamp_search . '>' . $yamp_body . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	endforeach;
 	?>

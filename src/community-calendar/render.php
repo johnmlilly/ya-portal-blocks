@@ -33,7 +33,7 @@ if ( '' === $yamp_url ) {
 
 $yamp_title = '' !== $yamp_heading ? $yamp_heading : __( 'Community Calendar', 'ya-portal-blocks' );
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo get_block_wrapper_attributes(); ?> data-yamp-search-group>
 	<div class="yamp-card">
 		<?php if ( '' !== $yamp_heading ) : ?>
 			<div class="yamp-card__head">

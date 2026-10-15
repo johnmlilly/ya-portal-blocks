@@ -30,11 +30,12 @@ non-technical site admin, no custom database or dashboard screen required.
 
 ## 3. Features - What does the MVP need?
 
-- Document search: the hero search box live-filters the portal page in the
-  browser. For now it matches document rows (Formation and Community
-  Documents) and Development events by title; non-matching rows hide as you
-  type and clearing the box restores them. No server search, no editor
-  settings
+- Search: the hero search box live-filters the whole portal page in the
+  browser. It matches documents, Development events, quick actions, featured
+  items, development contacts, and giving buttons on their visible text;
+  non-matching items and cards left empty hide as you type (the embedded
+  calendar hides while searching), and clearing the box restores them. No
+  server search, no editor settings
 - Featured section above the quick actions: one spotlight item (tag, title,
   short text, button) beside a short list of featured items (tag, title,
   detail line, optional link) for time-sensitive highlights such as the

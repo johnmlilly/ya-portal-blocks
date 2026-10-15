@@ -128,8 +128,8 @@ if ( ! function_exists( 'yamp_development_upcoming_events' ) ) {
 $yamp_events = yamp_development_upcoming_events( isset( $attributes['events'] ) ? $attributes['events'] : array() );
 $yamp_arrow  = '<span class="yamp-dev__arrow" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>';
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
-	<div class="yamp-dev-card">
+<div <?php echo get_block_wrapper_attributes(); ?> data-yamp-search-group>
+	<div class="yamp-dev-card" data-yamp-search-group>
 		<?php if ( '' !== $yamp_events_heading ) : ?>
 			<div class="yamp-dev-card__head">
 				<span class="yamp-dev-card__icon"><?php echo $yamp_svg_open; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static markup. ?><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
@@ -151,9 +151,9 @@ $yamp_arrow  = '<span class="yamp-dev__arrow" aria-hidden="true"><svg width="14"
 
 					if ( '' !== $yamp_event['url'] ) {
 						// $yamp_body is built only from escaped text; the URL is esc_url()'d above.
-						echo '<li><a class="yamp-dev__row" href="' . $yamp_event['url'] . '">' . $yamp_body . $yamp_arrow . '</a></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<li data-yamp-search="' . esc_attr( trim( $yamp_event['title'] . ' ' . $yamp_event['details'] ) ) . '"><a class="yamp-dev__row" href="' . $yamp_event['url'] . '">' . $yamp_body . $yamp_arrow . '</a></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					} else {
-						echo '<li><div class="yamp-dev__row">' . $yamp_body . '</div></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo '<li data-yamp-search="' . esc_attr( trim( $yamp_event['title'] . ' ' . $yamp_event['details'] ) ) . '"><div class="yamp-dev__row">' . $yamp_body . '</div></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				endforeach;
 				?>
@@ -161,7 +161,7 @@ $yamp_arrow  = '<span class="yamp-dev__arrow" aria-hidden="true"><svg width="14"
 		<?php endif; ?>
 	</div>
 
-	<div class="yamp-dev-card">
+	<div class="yamp-dev-card" data-yamp-search-group>
 		<?php if ( '' !== $yamp_contacts_heading ) : ?>
 			<div class="yamp-dev-card__head">
 				<span class="yamp-dev-card__icon"><?php echo $yamp_svg_open; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static markup. ?><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
@@ -190,11 +190,14 @@ $yamp_arrow  = '<span class="yamp-dev__arrow" aria-hidden="true"><svg width="14"
 					. ( '' !== $yamp_email ? '<span>' . esc_html( $yamp_email ) . '</span>' : '' )
 					. '</span>';
 
+				// The hero search filter matches contacts on name, title, and email.
+				$yamp_search = ' data-yamp-search="' . esc_attr( trim( $yamp_name . ' ' . $yamp_role . ' ' . $yamp_email ) ) . '"';
+
 				if ( '' !== $yamp_email ) {
 					// $yamp_body is built only from escaped text.
-					echo '<li><a class="yamp-dev__row" href="' . esc_url( 'mailto:' . $yamp_email ) . '">' . $yamp_body . '</a></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<li' . $yamp_search . '><a class="yamp-dev__row" href="' . esc_url( 'mailto:' . $yamp_email ) . '">' . $yamp_body . '</a></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				} else {
-					echo '<li><div class="yamp-dev__row">' . $yamp_body . '</div></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<li' . $yamp_search . '><div class="yamp-dev__row">' . $yamp_body . '</div></li>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			endforeach;
 			?>
@@ -213,7 +216,7 @@ $yamp_arrow  = '<span class="yamp-dev__arrow" aria-hidden="true"><svg width="14"
 			}
 
 			$yamp_class    = '' === $yamp_buttons ? 'yamp-dev__btn yamp-dev__btn--primary' : 'yamp-dev__btn';
-			$yamp_buttons .= '<a class="' . $yamp_class . '" href="' . $yamp_url . '">' . esc_html( $yamp_label ) . '</a>';
+			$yamp_buttons .= '<a class="' . $yamp_class . '" href="' . $yamp_url . '" data-yamp-search="' . esc_attr( $yamp_label ) . '">' . esc_html( $yamp_label ) . '</a>';
 		}
 
 		if ( '' !== $yamp_buttons ) {

@@ -60,4 +60,22 @@
 			box-shadow: none;
 		}
 	}
+
+	.yamp-hero__results {
+		margin: 8px 0 0;
+		color: $yamp-muted;
+		font: 500 13px / 1.4 $yamp-font;
+		text-align: center;
+
+		&:empty {
+			display: none;
+		}
+	}
+}
+
+// Rows and cards hidden by the search filter stay hidden even where a block's
+// own grid or flex rules set display.
+[data-yamp-search-group][hidden],
+[data-yamp-search][hidden] {
+	display: none !important;
 }

@@ -52,13 +52,16 @@ if ( '' !== $yamp_spot_name ) {
 		. '<h4 class="yamp-feat__spot-title">' . esc_html( $yamp_spot_name ) . '</h4>'
 		. ( '' !== $yamp_spot_text ? '<p class="yamp-feat__spot-text">' . esc_html( $yamp_spot_text ) . '</p>' : '' );
 
+	// The hero search filter matches the spotlight on its title and text.
+	$yamp_spot_search = ' data-yamp-search="' . esc_attr( trim( $yamp_spot_name . ' ' . $yamp_spot_text ) ) . '"';
+
 	if ( '' !== $yamp_spot_url ) {
 		if ( '' !== $yamp_spot_label ) {
 			$yamp_spot_body .= '<span class="yamp-feat__button">' . esc_html( $yamp_spot_label ) . ' <span aria-hidden="true">→</span></span>';
 		}
-		$yamp_spot_html = '<a class="yamp-feat__spotlight" href="' . $yamp_spot_url . '">' . $yamp_spot_body . '</a>';
+		$yamp_spot_html = '<a class="yamp-feat__spotlight" href="' . $yamp_spot_url . '"' . $yamp_spot_search . '>' . $yamp_spot_body . '</a>';
 	} else {
-		$yamp_spot_html = '<div class="yamp-feat__spotlight">' . $yamp_spot_body . '</div>';
+		$yamp_spot_html = '<div class="yamp-feat__spotlight"' . $yamp_spot_search . '>' . $yamp_spot_body . '</div>';
 	}
 }
 
@@ -83,16 +86,18 @@ foreach ( $yamp_items as $yamp_item ) {
 		. ( '' !== $yamp_detail ? '<span>' . esc_html( $yamp_detail ) . '</span>' : '' )
 		. '</span>';
 
+	$yamp_search = ' data-yamp-search="' . esc_attr( trim( $yamp_title . ' ' . $yamp_detail ) ) . '"';
+
 	if ( '' !== $yamp_url ) {
-		$yamp_rows_html .= '<li><a class="yamp-feat__row" href="' . $yamp_url . '">' . $yamp_body . $yamp_arrow . '</a></li>';
+		$yamp_rows_html .= '<li' . $yamp_search . '><a class="yamp-feat__row" href="' . $yamp_url . '">' . $yamp_body . $yamp_arrow . '</a></li>';
 	} else {
-		$yamp_rows_html .= '<li><div class="yamp-feat__row">' . $yamp_body . '</div></li>';
+		$yamp_rows_html .= '<li' . $yamp_search . '><div class="yamp-feat__row">' . $yamp_body . '</div></li>';
 	}
 }
 
 $yamp_classes = '' !== $yamp_spot_html && '' !== $yamp_rows_html ? '' : 'yamp-feat--single';
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => $yamp_classes ) ); ?>>
+<div <?php echo get_block_wrapper_attributes( array( 'class' => $yamp_classes ) ); ?> data-yamp-search-group>
 	<?php if ( '' === $yamp_spot_html && '' === $yamp_rows_html ) : ?>
 		<p class="yamp-feat__empty"><?php esc_html_e( 'No featured items yet.', 'ya-portal-blocks' ); ?></p>
 	<?php else : ?>
@@ -100,7 +105,7 @@ $yamp_classes = '' !== $yamp_spot_html && '' !== $yamp_rows_html ? '' : 'yamp-fe
 		// Both fragments are built only from escaped text, esc_url()'d links, and static markup above.
 		echo $yamp_spot_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( '' !== $yamp_rows_html ) {
-			echo '<div class="yamp-feat__list"><ul>' . $yamp_rows_html . '</ul></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<div class="yamp-feat__list" data-yamp-search-group><ul>' . $yamp_rows_html . '</ul></div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		?>
 	<?php endif; ?>

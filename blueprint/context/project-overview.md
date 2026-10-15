@@ -1,6 +1,6 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash 7bd1c7fe00c359bf64dc62f8ad728ed353586bdee52333f19f90cecff1120208 -->
+<!-- blueprint:source-hash 253f3cbeee179b61d98253200ec9080c09ce8ced59d1aea191206c7a05286170 -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
 > "Member Portal" page: formation documents, community documents, quick
@@ -62,9 +62,9 @@ membership-stage roles anywhere in this plan.
 10. **Featured block** - spotlight item beside a short list of featured
     items (Ministry Impact Survey, auction, prayer campaigns, news), all
     edited in the block sidebar; placed above Quick Actions.
-11. **Hero search filter** - the hero search live-filters the portal page
-    in the browser (non-matching document rows and Development events hide;
-    clearing restores them). No editor settings, no server search.
+11. **Hero search filter** - the hero search live-filters the whole portal
+    page in the browser (non-matching items and empty cards hide; clearing
+    restores them). No editor settings, no server search.
 
 ## Data model
 
@@ -114,10 +114,11 @@ Shared implementation: `includes/document-list.php` (renderer),
 
 ### Hero search filter (feature 11)
 
-- No stored data. Client-side script matches the query against titles of
-  document rows (blocks 3, 4) and Development events (block 9) only; quick
-  actions, contacts, and featured items are not filtered for now.
-  > TODO: no-results message - decide in `/feature 11`.
+- No stored data. Client-side script matches the query against the visible
+  text of documents (3, 4), quick actions (2), featured items (10), and
+  Development events, contacts, and giving buttons (9). Cards and blocks with
+  no visible matches hide; the calendar (5) hides while a query is active.
+  Results line: "N matches" or "Nothing on this page matches “query”."
 
 ### Member (WP user)
 

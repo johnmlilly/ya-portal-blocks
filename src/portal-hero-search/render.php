@@ -36,4 +36,13 @@ if ( $yamp_user->exists() && '' !== $yamp_user->display_name ) {
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
 		<input type="search" placeholder="<?php esc_attr_e( 'Search…', 'ya-portal-blocks' ); ?>" aria-label="<?php esc_attr_e( 'Search documents', 'ya-portal-blocks' ); ?>" />
 	</div>
+	<?php
+	/* translators: %d: number of matching items on the portal page. */
+	$yamp_one = __( '%d match', 'ya-portal-blocks' );
+	/* translators: %d: number of matching items on the portal page. */
+	$yamp_many = __( '%d matches', 'ya-portal-blocks' );
+	/* translators: %s: the search text the member typed. */
+	$yamp_none = __( 'Nothing on this page matches “%s”.', 'ya-portal-blocks' );
+	?>
+	<p class="yamp-hero__results" aria-live="polite" data-one="<?php echo esc_attr( $yamp_one ); ?>" data-many="<?php echo esc_attr( $yamp_many ); ?>" data-none="<?php echo esc_attr( $yamp_none ); ?>"></p>
 </div>

@@ -50,10 +50,11 @@ logged-in member sees the same content.
       Survey, the auction, and prayer campaigns; content editors edit
       everything in the block sidebar like the other blocks (add, edit,
       reorder, remove); placed above Quick Actions; see mockup
-- [ ] 11. **Hero search filter** - make the hero search live-filter the
-      portal page in the browser (document rows and Development events whose
-      titles don't match hide as you type; clearing restores them); no
-      editor settings, no server search
+- [x] 11. **Hero search filter** - make the hero search live-filter the
+      portal page in the browser (documents, events, quick actions, featured
+      items, contacts, and giving buttons that don't match hide as you type,
+      along with cards left empty; clearing restores them); no editor
+      settings, no server search
 
 ## Future releases
 

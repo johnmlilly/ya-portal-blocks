@@ -44,12 +44,12 @@ if ( empty( $yamp_stages ) && ! $yamp_show_general ) {
 	return;
 }
 ?>
-<section <?php echo get_block_wrapper_attributes(); ?>>
+<section <?php echo get_block_wrapper_attributes(); ?> data-yamp-search-group>
 	<?php if ( '' !== $yamp_heading ) : ?>
 		<h3 class="yamp-section__title"><?php echo esc_html( $yamp_heading ); ?></h3>
 	<?php endif; ?>
 	<?php if ( $yamp_show_general ) : ?>
-		<div class="yamp-stage yamp-stage--general">
+		<div class="yamp-stage yamp-stage--general" data-yamp-search-group>
 			<div class="yamp-stage__head">
 				<span class="yamp-stage__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="<?php echo esc_attr( $yamp_stage_icons['people'][0] ); ?>" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $yamp_stage_icons['people'][1]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static icon map above. ?></svg></span>
 				<h4 class="yamp-stage__title"><?php echo esc_html( $yamp_general_heading ); ?></h4>
@@ -69,7 +69,7 @@ if ( empty( $yamp_stages ) && ! $yamp_show_general ) {
 			$yamp_stage_heading = isset( $yamp_stage['heading'] ) ? (string) $yamp_stage['heading'] : '';
 			$yamp_documents     = isset( $yamp_stage['documents'] ) ? $yamp_stage['documents'] : array();
 			?>
-			<div class="yamp-stage">
+			<div class="yamp-stage" data-yamp-search-group>
 				<div class="yamp-stage__head">
 					<span class="yamp-stage__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="<?php echo esc_attr( $yamp_stage_icons[ $yamp_icon ][0] ); ?>" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><?php echo $yamp_stage_icons[ $yamp_icon ][1]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static icon map above. ?></svg></span>
 					<h4 class="yamp-stage__title"><?php echo esc_html( $yamp_stage_heading ); ?></h4>

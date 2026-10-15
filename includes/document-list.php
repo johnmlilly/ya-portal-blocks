@@ -56,10 +56,13 @@ function yamp_render_document_list( $documents ) {
 			. '<span class="yamp-doc__title">' . esc_html( $title ) . '</span>'
 			. '<span class="yamp-doc__badge yamp-type--' . $type . '">' . esc_html( $types[ $type ][0] ) . '</span>';
 
+		// The hero search filter (feature 11) matches rows on this title.
+		$search = ' data-yamp-search="' . esc_attr( $title ) . '"';
+
 		if ( '' !== $url ) {
-			$html .= '<li><a class="yamp-doc" href="' . $url . '">' . $body . $open_arrow . '</a></li>';
+			$html .= '<li' . $search . '><a class="yamp-doc" href="' . $url . '">' . $body . $open_arrow . '</a></li>';
 		} else {
-			$html .= '<li><div class="yamp-doc yamp-doc--no-link">' . $body . '</div></li>';
+			$html .= '<li' . $search . '><div class="yamp-doc yamp-doc--no-link">' . $body . '</div></li>';
 		}
 	}
 
