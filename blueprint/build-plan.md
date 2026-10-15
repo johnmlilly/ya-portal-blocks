@@ -43,7 +43,7 @@ logged-in member sees the same content.
       events list (date, title, time/location, link) beside development
       contacts (Fr. Jack Peterson, Tyler Fabian - name, title, email) and
       Donate / Legacy Giving / Donor Portal buttons; see mockup
-- [ ] 10. **Featured block** - spotlight item (tag, title, text, button
+- [x] 10. **Featured block** - spotlight item (tag, title, text, button
       label + link) beside a short list of featured items (tag, title,
       detail line, optional link); tags from a fixed set (Event, Survey,
       Prayer, News); for highlights like the Ministry Impact

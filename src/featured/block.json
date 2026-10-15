@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "yamp/featured",
+	"version": "1.0.0",
+	"title": "Featured",
+	"category": "widgets",
+	"icon": "star-filled",
+	"description": "Member portal highlights: one spotlight item beside a short list of tagged featured items.",
+	"example": {},
+	"attributes": {
+		"spotlight": {
+			"type": "object",
+			"default": {
+				"tag": "survey",
+				"title": "Ministry Impact Survey",
+				"text": "Help capture the full footprint of Youth Apostles across every location. We use it for the blog, the annual report to the bishop, and donor meetings. Haven't finished phase 2? Please complete it soon.",
+				"buttonLabel": "Take the survey",
+				"url": ""
+			}
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"tag": "event",
+					"title": "Auction: A Night at the Races",
+					"detail": "Nov 7 · Donate silent-auction items or fill a table",
+					"url": "https://www.youthapostles.org/auction"
+				},
+				{
+					"tag": "prayer",
+					"title": "Beneath Mary's Mantle",
+					"detail": "100-day prayer campaign for Mount St. Mary's, ends Dec 8",
+					"url": ""
+				},
+				{
+					"tag": "prayer",
+					"title": "Share a ministry prayer intention",
+					"detail": "Email Liz with the intention and its end date",
+					"url": "mailto:liz.garcia@youthapostles.org"
+				},
+				{
+					"tag": "news",
+					"title": "New diaspora coordinator",
+					"detail": "Jim Engbert takes over from Ben Kolodziej",
+					"url": ""
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "ya-portal-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

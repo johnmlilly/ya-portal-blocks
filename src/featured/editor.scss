@@ -1,0 +1,12 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+
+// The server-rendered preview nests a second block wrapper inside the editor
+// wrapper; keep the outer one a plain container so the grid and margins apply
+// once.
+.wp-block-yamp-featured:has(> div > .wp-block-yamp-featured),
+.wp-block-yamp-featured:has(> .wp-block-yamp-featured) {
+	display: block;
+	margin: 0;
+}

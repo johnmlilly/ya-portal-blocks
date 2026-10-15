@@ -18,6 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Development section: a "Development" heading and short intro over the
  * Development block, which lays out its own two cards.
+ *
+ * Featured section: a "Featured" heading over the Featured block, meant to
+ * sit above Quick Actions.
  */
 function yamp_register_portal_patterns() {
 	register_block_pattern_category(
@@ -62,6 +65,20 @@ function yamp_register_portal_patterns() {
 <!-- /wp:paragraph -->
 
 <!-- wp:yamp/development /-->',
+		)
+	);
+
+	register_block_pattern(
+		'yamp/featured-section',
+		array(
+			'title'       => __( 'Featured section', 'ya-portal-blocks' ),
+			'description' => __( 'Featured heading over a spotlight item and a short list of highlights.', 'ya-portal-blocks' ),
+			'categories'  => array( 'yamp-portal' ),
+			'content'     => '<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">' . esc_html__( 'Featured', 'ya-portal-blocks' ) . '</h3>
+<!-- /wp:heading -->
+
+<!-- wp:yamp/featured /-->',
 		)
 	);
 }

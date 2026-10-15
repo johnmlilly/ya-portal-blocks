@@ -10,21 +10,3 @@
 	display: block;
 	margin: 0;
 }
-
-// Sidebar row editor: one bordered group per event, contact, or button.
-.yamp-dev-editor__row {
-	margin-bottom: 16px;
-	padding: 12px;
-	border: 1px solid #e0e0e0;
-	border-radius: 4px;
-}
-
-.yamp-dev-editor__row-title {
-	margin: 0 0 12px;
-	font-weight: 600;
-}
-
-.yamp-dev-editor__help {
-	color: #757575;
-	font-size: 12px;
-}
