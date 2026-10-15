@@ -4,7 +4,7 @@ Tags:              block, member portal, documents, calendar
 Requires at least: 6.8
 Tested up to:      6.8
 Requires PHP:      7.4
-Stable tag:        1.0.0
+Stable tag:        1.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,10 @@ Anywhere with a link. Paste a URL, or upload the file to the Media Library and u
 
 == Changelog ==
 
+= 1.1.0 =
+* Featured block and Featured section pattern: a spotlight item beside a short list of tagged highlights.
+* Hero search now filters the whole portal page as you type.
+
 = 1.0.0 =
 * Portal Hero + Search block.
 * Quick Actions block.
@@ -88,5 +92,3 @@ Anywhere with a link. Paste a URL, or upload the file to the Media Library and u
 * Community Documents block.
 * Community Calendar block and Community section pattern.
 * Development block and Development section pattern.
-* Featured block and Featured section pattern.
-* Hero search now filters the whole portal page.
