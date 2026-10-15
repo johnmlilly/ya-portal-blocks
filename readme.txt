@@ -18,7 +18,7 @@ Every block keeps its content in its own settings. A site editor drops the block
 
 Blocks (all in the Widgets category):
 
-* **Portal Hero + Search** - welcome header with a document search bar (the search field is decorative for now).
+* **Portal Hero + Search** - welcome header with a search box that filters the whole portal page as you type.
 * **Featured** - one spotlight item beside a short list of highlights such as the Ministry Impact Survey, the auction, prayer campaigns, and community news. Each item has a tag (Event, Survey, Prayer, or News) shown as a small colored icon.
 * **Quick Actions** - editable, reorderable link cards (update contact info, member directory, birthdays and anniversaries, request logos).
 * **Formation Documents** - stage columns (Prospective, Candidate, Full Member by default; add, remove, reorder) plus an optional "For All Members" list. Each document has a title, type (PDF, form, doc, audio), and link.
@@ -31,6 +31,13 @@ Development block details:
 * Events have a date, title, time and location, and an optional link. They sort soonest first and drop off the day after their date (site timezone). With no upcoming events the card shows "No upcoming events. Check back soon."
 * Contacts have a name, title, and email, and show initials in a circle. They default to Fr. Jack Peterson, YA (Director of Mission and Development) and Tyler Fabian (Senior Development Officer), both at development@youthapostles.org.
 * The first giving button is highlighted. Buttons missing a label or link are hidden.
+
+Search details:
+
+* Typing in the hero search box hides documents, events, quick actions, featured items, contacts, and giving buttons that don't match, along with any card or block left empty. Matching ignores case and accents.
+* The embedded calendar hides while a search is active, since its contents can't be searched.
+* A line under the box shows the number of matches, or "Nothing on this page matches" when there are none. Clearing the box restores the page.
+* Search runs in the browser on the live page only; it has no settings and does not search inside document files.
 
 Featured block details:
 
@@ -56,6 +63,10 @@ Block patterns (Member Portal category):
 
 Whoever can see the page it is on. The plugin does no access checks of its own; the site's member login protects the portal page.
 
+= Does the search look inside documents? =
+
+No. It matches the text shown on the portal page, such as document titles, event details, and contact names.
+
 = How do I change the featured items? =
 
 Select the Featured block. Edit the Spotlight panel for the main item and the Items panel for the list (add, reorder, or remove items, and pick a tag for each). Featured items do not expire on their own, so remove them when they are out of date.
@@ -78,3 +89,4 @@ Anywhere with a link. Paste a URL, or upload the file to the Media Library and u
 * Community Calendar block and Community section pattern.
 * Development block and Development section pattern.
 * Featured block and Featured section pattern.
+* Hero search now filters the whole portal page.

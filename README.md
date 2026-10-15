@@ -13,13 +13,27 @@ control: the existing site's member login protects the page.
 
 | Block | Name | What it shows |
 |---|---|---|
-| Portal Hero + Search | `yamp/portal-hero-search` | Welcome header and a document search bar (decorative for now) |
+| Portal Hero + Search | `yamp/portal-hero-search` | Welcome header and a search box that filters the page as you type |
 | Featured | `yamp/featured` | Spotlight item beside a short list of tagged highlights |
 | Quick Actions | `yamp/quick-actions` | Editable, reorderable link cards |
 | Formation Documents | `yamp/formation-documents` | Stage columns plus an optional "For All Members" list of documents |
 | Community Documents | `yamp/community-documents` | One card of org-wide documents |
 | Community Calendar | `yamp/community-calendar` | Embedded Google Calendar (URL/ID and height are settings) |
 | Development | `yamp/development` | Upcoming fundraising events, development contacts, giving buttons |
+
+### Hero search filter
+
+`src/portal-hero-search/view.js` (front end only, via `viewScript`) filters
+the page as you type. Matching ignores case and accents.
+
+- **Items** carry their searchable text in `data-yamp-search`: document and
+  event rows, quick-action cards, the Featured spotlight and items, contacts,
+  and giving buttons.
+- **Cards and blocks** that can hide carry `data-yamp-search-group`. A group
+  hides when none of its items match; a group with no items (the calendar)
+  hides whenever a search is active.
+- **Results line** under the box shows the match count or "Nothing on this
+  page matches". Clearing the box restores everything.
 
 ### Featured block
 
