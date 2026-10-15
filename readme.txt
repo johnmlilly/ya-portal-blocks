@@ -8,17 +8,18 @@ Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Blocks for the Youth Apostles member portal: formation and community documents, quick actions, the community calendar, and fundraising.
+Blocks for the Youth Apostles member portal: featured highlights, formation and community documents, quick actions, the community calendar, and fundraising.
 
 == Description ==
 
-Member Portal gives Youth Apostles members one page with everything they need: formation documents for each stage, community documents, quick links, the community calendar, and the Development (fundraising) section.
+Member Portal gives Youth Apostles members one page with everything they need: featured highlights, formation documents for each stage, community documents, quick links, the community calendar, and the Development (fundraising) section.
 
 Every block keeps its content in its own settings. A site editor drops the blocks onto the portal page and edits titles, links, and lists in the block sidebar. There is no custom post type, database table, or separate admin screen. Every logged-in member sees the same content; the site's existing login requirement controls access, not this plugin.
 
 Blocks (all in the Widgets category):
 
 * **Portal Hero + Search** - welcome header with a document search bar (the search field is decorative for now).
+* **Featured** - one spotlight item beside a short list of highlights such as the Ministry Impact Survey, the auction, prayer campaigns, and community news. Each item has a tag (Event, Survey, Prayer, or News) shown as a small colored icon.
 * **Quick Actions** - editable, reorderable link cards (update contact info, member directory, birthdays and anniversaries, request logos).
 * **Formation Documents** - stage columns (Prospective, Candidate, Full Member by default; add, remove, reorder) plus an optional "For All Members" list. Each document has a title, type (PDF, form, doc, audio), and link.
 * **Community Documents** - one card listing org-wide documents, with the same document rows.
@@ -31,10 +32,17 @@ Development block details:
 * Contacts have a name, title, and email, and show initials in a circle. They default to Fr. Jack Peterson, YA (Director of Mission and Development) and Tyler Fabian (Senior Development Officer), both at development@youthapostles.org.
 * The first giving button is highlighted. Buttons missing a label or link are hidden.
 
+Featured block details:
+
+* The spotlight has a tag, title, text, button label, and link. Without a link it shows without a button; with an empty title it is hidden.
+* List items have a tag, title, detail line, and optional link. Items without a title are hidden; items without a link are shown but not clickable.
+* If only the spotlight or only the list has content, it spans the full width.
+
 Block patterns (Member Portal category):
 
 * **Community section** - "Community" heading over Community Documents (1/3) beside the Community Calendar (2/3).
 * **Development section** - "Development" heading and intro over the Development block.
+* **Featured section** - "Featured" heading over the Featured block, for placing above Quick Actions.
 
 == Installation ==
 
@@ -47,6 +55,10 @@ Block patterns (Member Portal category):
 = Who can see the portal? =
 
 Whoever can see the page it is on. The plugin does no access checks of its own; the site's member login protects the portal page.
+
+= How do I change the featured items? =
+
+Select the Featured block. Edit the Spotlight panel for the main item and the Items panel for the list (add, reorder, or remove items, and pick a tag for each). Featured items do not expire on their own, so remove them when they are out of date.
 
 = How do I add a fundraising event? =
 
@@ -65,3 +77,4 @@ Anywhere with a link. Paste a URL, or upload the file to the Media Library and u
 * Community Documents block.
 * Community Calendar block and Community section pattern.
 * Development block and Development section pattern.
+* Featured block and Featured section pattern.

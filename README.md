@@ -1,7 +1,7 @@
 # Member Portal (ya-portal-blocks)
 
-WordPress block plugin for the Youth Apostles member portal. It puts formation
-documents, community documents, quick actions, the community calendar, and the
+WordPress block plugin for the Youth Apostles member portal. It puts featured
+highlights, formation documents, community documents, quick actions, the community calendar, and the
 Development (fundraising) section on one page that a non-technical editor
 maintains in the block editor.
 
@@ -14,11 +14,23 @@ control: the existing site's member login protects the page.
 | Block | Name | What it shows |
 |---|---|---|
 | Portal Hero + Search | `yamp/portal-hero-search` | Welcome header and a document search bar (decorative for now) |
+| Featured | `yamp/featured` | Spotlight item beside a short list of tagged highlights |
 | Quick Actions | `yamp/quick-actions` | Editable, reorderable link cards |
 | Formation Documents | `yamp/formation-documents` | Stage columns plus an optional "For All Members" list of documents |
 | Community Documents | `yamp/community-documents` | One card of org-wide documents |
 | Community Calendar | `yamp/community-calendar` | Embedded Google Calendar (URL/ID and height are settings) |
 | Development | `yamp/development` | Upcoming fundraising events, development contacts, giving buttons |
+
+### Featured block
+
+- **Spotlight:** tag, title, text, button label, link. No link means no
+  button; an empty title hides it.
+- **Items:** tag, title, detail, optional link. Untitled items are hidden;
+  unlinked items are not clickable.
+- **Tags:** fixed set (Event, Survey, Prayer, News), shown as small colored
+  icon tiles with a screen-reader label. Unknown values show as News.
+- Defaults come from the weekly email (Ministry Impact Survey, auction,
+  prayer campaigns, news); editors keep them current by hand.
 
 ### Development block
 
@@ -37,6 +49,7 @@ Registered in `includes/patterns.php` under the "Member Portal" category:
 
 - `yamp/community-section` - Community heading, documents (1/3) beside calendar (2/3)
 - `yamp/development-section` - Development heading and intro over the Development block
+- `yamp/featured-section` - Featured heading over the Featured block (place above Quick Actions)
 
 ## Development
 
@@ -64,7 +77,7 @@ No unit test runner is configured yet.
 ya-portal-blocks.php   plugin bootstrap, block registration, Montserrat font
 includes/              shared PHP: document list, calendar URL helper, patterns
 src/<block>/           one folder per block (block.json, edit.js, render.php, styles)
-src/shared/            brand tokens, document-list styles and sidebar control
+src/shared/            brand tokens, document-list styles, sidebar list editors
 references/            redesign mockup and brand guide
 blueprint/             planning docs, feature specs, and build history
 ```
