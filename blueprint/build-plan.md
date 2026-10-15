@@ -43,6 +43,17 @@ logged-in member sees the same content.
       events list (date, title, time/location, link) beside development
       contacts (Fr. Jack Peterson, Tyler Fabian - name, title, email) and
       Donate / Legacy Giving / Donor Portal buttons; see mockup
+- [ ] 10. **Featured block** - spotlight item (tag, title, text, button
+      label + link) beside a short list of featured items (tag, title,
+      detail line, optional link); tags from a fixed set (Event, Survey,
+      Prayer, News); for highlights like the Ministry Impact
+      Survey, the auction, and prayer campaigns; content editors edit
+      everything in the block sidebar like the other blocks (add, edit,
+      reorder, remove); placed above Quick Actions; see mockup
+- [ ] 11. **Hero search filter** - make the hero search live-filter the
+      portal page in the browser (document rows and Development events whose
+      titles don't match hide as you type; clearing restores them); no
+      editor settings, no server search
 
 ## Future releases
 

@@ -30,8 +30,16 @@ non-technical site admin, no custom database or dashboard screen required.
 
 ## 3. Features - What does the MVP need?
 
-- Document search across the documents on the page (decorative for v1 - no
-  backing data source yet, may become a simple client-side filter later)
+- Document search: the hero search box live-filters the portal page in the
+  browser. For now it matches document rows (Formation and Community
+  Documents) and Development events by title; non-matching rows hide as you
+  type and clearing the box restores them. No server search, no editor
+  settings
+- Featured section above the quick actions: one spotlight item (tag, title,
+  short text, button) beside a short list of featured items (tag, title,
+  detail line, optional link) for time-sensitive highlights such as the
+  Ministry Impact Survey, the annual auction, prayer campaigns, and community
+  news. Tags come from a fixed set: Event, Survey, Prayer, News
 - Quick actions: an editable, reorderable row of link cards (icon, label,
   description, link), starting with update contact info, full member
   directory, birthdays & anniversaries, and request logo files (mailto link)
@@ -46,6 +54,12 @@ non-technical site admin, no custom database or dashboard screen required.
   statutes, guidelines, branding guide), same editable-list pattern
 - Community Calendar (Google Calendar embed; the calendar's URL/ID is a field
   on the block itself, editable in the page editor)
+- Development (fundraising) section: an editable list of upcoming
+  fundraising events (date, title, time/location, optional link) that sort
+  soonest first and hide the day after their date, beside the development
+  office contacts (Fr. Jack Peterson, YA and Tyler Fabian, both
+  development@youthapostles.org) and Donate / Legacy Giving / Donor Portal
+  buttons
 - Access limited to logged-in members, enforced by the existing site's own
   login requirement, not by this plugin (no per-stage visibility restriction)
 
@@ -61,6 +75,12 @@ non-technical site admin, no custom database or dashboard screen required.
   profile fields (name, email) as-is
 - **Community events**: not stored locally - sourced from an embedded Google
   Calendar
+- **Fundraising events, development contacts, giving links**: Development
+  block attributes (event: date `YYYY-MM-DD`, title, details, url; contact:
+  name, title, email; link: label, url)
+- **Featured items**: Featured block attributes (spotlight: tag, title, text,
+  button label, url; list item: tag, title, detail, url). `tag` is one of
+  `event`, `survey`, `prayer`, `news`
 - No custom database tables, custom post types, or taxonomies anywhere in the
   plan; everything rides on WordPress core (users, posts/postmeta for the
   portal page itself)
@@ -87,7 +107,12 @@ typography, logo usage).
 - Clean, card-based layout: hero + search, a row of quick-action cards, a
   "Formation Documents" section with a full-width all-members card above one
   card-column per stage, a two-column
-  "Community" section (community documents + calendar)
+  "Community" section (community documents + calendar), and a two-column
+  "Development" section (events + contacts and giving buttons)
+- "Featured" section between the hero and the quick actions: a white
+  spotlight card with a gold left accent and a small navy button, beside a
+  list card of tagged rows. Tag colors: Event and Survey gold, Prayer green,
+  News light navy
 - Brand palette from the redesign concept: navy ink (`#152B5C`), warm off-white
   background (`#FBFAF7`), gold accent (`#998631`), green/red status colors for
   badges, Montserrat typeface

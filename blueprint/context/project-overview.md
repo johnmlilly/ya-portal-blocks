@@ -1,6 +1,6 @@
 # ya-portal-blocks - Project Overview
 
-<!-- blueprint:source-hash 2f6e3f003d5e48aa0fff600056a67447a9150559809d82f09212d8378d938971 -->
+<!-- blueprint:source-hash 7bd1c7fe00c359bf64dc62f8ad728ed353586bdee52333f19f90cecff1120208 -->
 
 > A WordPress plugin (block set) that gives Youth Apostles members a single
 > "Member Portal" page: formation documents, community documents, quick
@@ -36,7 +36,7 @@ in through the WordPress page editor. No custom post type, database, or
 membership-stage roles anywhere in this plan.
 
 1. **Portal hero + search block** - welcome header and a document search
-   field (decorative for now - no backing data source to search across yet).
+   field (decorative until feature 11 wires it up).
 2. **Quick actions block** - editable, reorderable link cards, starting with
    update contact info, member directory, birthdays & anniversaries, request
    logos (mailto link).
@@ -59,6 +59,12 @@ membership-stage roles anywhere in this plan.
 9. **Development block** - fundraising section: editable upcoming events
    list beside development contacts (Fr. Jack Peterson, Tyler Fabian) and
    Donate / Legacy Giving / Donor Portal buttons.
+10. **Featured block** - spotlight item beside a short list of featured
+    items (Ministry Impact Survey, auction, prayer campaigns, news), all
+    edited in the block sidebar; placed above Quick Actions.
+11. **Hero search filter** - the hero search live-filters the portal page
+    in the browser (non-matching document rows and Development events hide;
+    clearing restores them). No editor settings, no server search.
 
 ## Data model
 
@@ -96,6 +102,23 @@ Shared implementation: `includes/document-list.php` (renderer),
 - **Giving buttons**: Donate (`/support?form=donate`, primary), Legacy Giving
   (`/waystogive`), Donor Portal (`donor.youthapostles.org`)
 
+### Featured block attributes (block 10)
+
+- **Spotlight**: `tag`, `title`, `text`, `buttonLabel`, `url`
+- **Item row** (repeated): `tag`, `title`, `detail`, `url` (optional; empty
+  renders a non-clickable row)
+- `tag` (enum, fixed): `event` | `survey` | `prayer` | `news`, shown as
+  EVENT / SURVEY / PRAYER / NEWS badges
+  > TODO: default content (email items vs empty, since time-sensitive
+  > defaults go stale) - decide in `/feature 10`.
+
+### Hero search filter (feature 11)
+
+- No stored data. Client-side script matches the query against titles of
+  document rows (blocks 3, 4) and Development events (block 9) only; quick
+  actions, contacts, and featured items are not filtered for now.
+  > TODO: no-results message - decide in `/feature 11`.
+
 ### Member (WP user)
 
 - Native WordPress user fields only (name, email, etc.) - no custom stage or
@@ -119,7 +142,10 @@ commercial product.
 Reference: `references/ya-portal-redesign.html` (static redesign concept) and
 `references/youth-apostles-brand-guide-2025.pdf` (brand guide).
 
-- Card-based layout: hero + search, quick-action cards, "Formation Documents"
+- Card-based layout: hero + search, "Featured" section (white spotlight
+  card with a gold left accent and small navy button, beside a list card of
+  tagged rows; tag colors: EVENT/SURVEY gold, PRAYER green, NEWS navy-soft),
+  quick-action cards, "Formation Documents"
   with a full-width all-members card above one card-column per stage,
   two-column "Community" section (community
   documents + calendar), then a two-column "Development" section (upcoming
