@@ -1,4 +1,4 @@
-# Member Portal (ya-portal-blocks)
+# Member Portal Blocks (ya-portal-blocks)
 
 WordPress block plugin for the Youth Apostles member portal. It puts featured
 highlights, formation documents, community documents, quick actions, the community calendar, and the
@@ -99,7 +99,7 @@ blueprint/             planning docs, feature specs, and build history
 ## Deploy
 
 Run `npm run build` then `npm run plugin-zip`, upload the zip on the target
-site's Plugins screen, and activate "Member Portal". Requires WordPress 6.8+
+site's Plugins screen, and activate "Member Portal Blocks". Requires WordPress 6.8+
 and PHP 7.4+.
 
 ## License

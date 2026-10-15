@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Member Portal
+ * Plugin Name:       Member Portal Blocks
  * Description:       Blocks for the Youth Apostles member portal: formation and community documents, quick actions, the community calendar, and fundraising.
  * Version:           1.1.0
  * Requires at least: 6.8

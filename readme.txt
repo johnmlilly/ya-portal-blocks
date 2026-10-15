@@ -1,4 +1,4 @@
-=== Member Portal ===
+=== Member Portal Blocks ===
 Contributors:      John Lilly
 Tags:              block, member portal, documents, calendar
 Requires at least: 6.8
@@ -12,7 +12,7 @@ Blocks for the Youth Apostles member portal: featured highlights, formation and 
 
 == Description ==
 
-Member Portal gives Youth Apostles members one page with everything they need: featured highlights, formation documents for each stage, community documents, quick links, the community calendar, and the Development (fundraising) section.
+Member Portal Blocks gives Youth Apostles members one page with everything they need: featured highlights, formation documents for each stage, community documents, quick links, the community calendar, and the Development (fundraising) section.
 
 Every block keeps its content in its own settings. A site editor drops the blocks onto the portal page and edits titles, links, and lists in the block sidebar. There is no custom post type, database table, or separate admin screen. Every logged-in member sees the same content; the site's existing login requirement controls access, not this plugin.
 
@@ -54,7 +54,7 @@ Block patterns (Member Portal category):
 == Installation ==
 
 1. Upload the plugin zip through Plugins > Add New > Upload Plugin, or copy the plugin folder to `/wp-content/plugins/ya-portal-blocks`.
-2. Activate "Member Portal" on the Plugins screen.
+2. Activate "Member Portal Blocks" on the Plugins screen.
 3. Edit the portal page, add the blocks or patterns from the Member Portal category, and fill in their content in the block sidebar.
 
 == Frequently Asked Questions ==
