@@ -1,0 +1,36 @@
+name: Dependencies
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 9 * * 1" # weekly, Mondays 9am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # Blocks a pull request only when it adds a dependency with a known
+  # high or critical vulnerability. Existing advisories don't block.
+  review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
+
+  # Weekly audit of runtime dependencies. The @wordpress/* packages are
+  # externals supplied by WordPress core, so only critical issues fail.
+  audit:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run audit
