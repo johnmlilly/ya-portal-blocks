@@ -252,7 +252,14 @@ WordPress plugin built with `@wordpress/scripts` (Create Block scaffold).
 - Dev/watch build: `npm run start`
 - Production build: `npm run build`
 - Format: `npm run format`
-- Lint JS: `npm run lint:js`
+- Verify: `npm run verify` (lint JS, lint CSS, build; GitHub runs the same
+  command in `.github/workflows/verify.yml`, plus a PHP syntax check)
+- Dependency audit: `npm run audit` (runtime deps, fails on critical only;
+  GitHub runs it weekly, and dependency review blocks PRs that add vulnerable
+  deps. Dependabot opens weekly update PRs.)
+- Release: push a `v*` tag; `.github/workflows/release.yml` builds and attaches
+  `ya-portal-blocks.zip` to a GitHub Release
+- Lint JS: `npm run lint:js` (scoped to `src/`)
 - Lint CSS: `npm run lint:css`
 - Package plugin zip: `npm run plugin-zip`
 - Local WordPress (Playground, no Docker): `npm run playground` - mounts and
